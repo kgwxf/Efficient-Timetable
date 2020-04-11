@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-
+{% if page == "1" %}
 <p>Your next lesson is <mark>{{ c }}</mark> at <strong>{{ t }}.<strong></p>
 <button onclick="window.location.href = 'https://Efficient-Timetabling--kgwxf.repl.co';" class="button">Back</button>
+{% else %}
+<p>Please try again</p>
+<button onclick="window.location.href = 'https://Efficient-Timetabling--kgwxf.repl.co';" class="button b3">Back</button>
+{% endif %}
 {% endblock %}
