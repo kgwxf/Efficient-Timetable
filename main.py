@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+  page = None
   if request.method == "GET":
     return render_template("index.html")
   
@@ -19,7 +20,8 @@ def index():
         if cls == "5C35":
           if record[0] == dy:
             if tme <= record[1]:
-              return render_template("page1.html", c=record[2],t=record[1])
+              page = "1"
+              return render_template("page1.html", c=record[2],t=record[1], page = page)
           #   else:
           #     return render_template("page1.html", c=record[2],t=record[1])
           # else:
@@ -28,7 +30,8 @@ def index():
         elif cls == "computing" and dy == "is" and tme == "cool":
           return render_template("easter.html")
         else:
-          return render_template("page3.html")
+          page = "3"
+          return render_template("page3.html", page = page)
         
           
 
